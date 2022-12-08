@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
-require('dotenv').config();
+require("dotenv").config();
 
 var API_KEY = process.env.API_KEY;
 var LIST_ID = process.env.LIST_ID;
@@ -10,8 +10,10 @@ const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log("listening on port 3000");
+app.listen(process.env.PORT, function () {
+  // console.log("listening on port 3000");
+  console.log("apikey: " + API_KEY);
+  console.log("list ID: " + LIST_ID);
 });
 
 app.get("/", function (req, res) {
